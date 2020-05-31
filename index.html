@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FormWizard_v2</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="fonts/linearicons/style.css">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+		<!-- DATE-PICKER -->
+		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+
+
+		<style>				
+			.ulul {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+				grid-gap: 10px;
+				color: #000;
+			}
+			
+			.lili {
+				background-color: #fff;
+				border-radius: 3px;
+				padding: 20px;
+				font-size: 14px;
+			}
+
+			.lili:hover {
+				background-color: #ddd;				  
+			}
+			
+			.info {
+				text-align: center;
+				font-size: 13px;
+				padding-top: 20px;
+				color: #fff;
+			}
+			</style>
+
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="inner">
+				<div class="image-holder">
+					<!--<img src="https://previews.123rf.com/images/kishivan/kishivan1511/kishivan151100076/48998032-beer-barrel-with-beer-glasses-on-a-wooden-table-the-dark-background-.jpg" alt="">-->
+					<!-- <img src="https://image.shutterstock.com/image-photo/oktoberfest-beer-barrel-glasses-wheat-260nw-1172422864.jpg" width="920" alt="gime beer"> -->
+					<h3>Quer chopp? Peça seu Barril</h3>
+					
+				</div>
+				<!-- <form class="form" onsubmit="negociacaoController.adiciona(event)">
+				
+					<div class="form-group">
+						<label for="data">Data</label>
+						<input type="text" placeholder="dd/mm/aaaa" id="data" class="form-control" required autofocus/>        
+					</div>    
+					
+					<div class="form-group">
+						<label for="quantidade">Quantidade</label>
+						<input type="number" min="1" step="1" id="quantidade" class="form-control" value="1" required/>
+					</div>
+					
+					<div class="form-group">
+						<label for="valor">Valor</label>
+						<input id="valor" type="number" class="form-control"  min="0.01" step="0.01" value="0.0" required />
+					</div>
+					
+					<button class="btn btn-primary" type="submit">Incluir</button>
+				
+				</form>
+
+				<div class="text-center">
+					<button onclick="negociacaoController.importaNegociacoes()" class="btn btn-primary text-center" type="button">
+						Importar Negociações
+					</button>
+					<button onclick="negociacaoController.apaga()" class="btn btn-primary text-center" type="button">
+						Apagar
+					</button>
+				</div> -->
+            	<div id="wizard">
+
+					<!-- SECTION 1 -->
+	                <h4>Tipo da cerveja</h4>
+	                <section>
+
+						<form class="form" id="data-form"></form>
+						<!--onsubmit="negociacaoController.adiciona(event)"-->
+
+						<div class="form-row">
+
+							<!--<div class="select mr-20">
+								<label>Tipo da Cerveja</label>
+								<div class="form-holder">
+									<div id="choosetype" class="select-control">Pilsen</div>
+									<span class="lnr lnr-chevron-down"></span>
+								</div>
+								<ul id="cervejatipo" class="dropdown">
+									<li rel="Pilsen">Pilsen</li>
+									<li rel="Larger">Larger</li>
+									<li rel="Weizen">Weizen</li>
+									<li rel="APA">APA</li>
+									<li rel="IPA">IPA</li>
+								</ul>
+							</div>-->
+
+							<div class="select mr-20"><label>Tipo da Cerveja</label>
+								<!--<div class="form-holder">
+									<div class="select-control">Pilsen</div>
+									<span class="lnr lnr-chevron-down"></span>
+								</div>-->
+								<!--<ul class="dropdown">
+									<li rel="Pilsen">Pilsen</li>
+									<li rel="Larger">Larger</li>
+									<li rel="Weizen">Weizen</li>
+									<li rel="APA">APA</li>
+									<li rel="IPA">IPA</li>
+								</ul>-->
+								<select id="tipobeer" class="selectstyle">
+									<option value="APA">APA</option>
+									<option value="Pilsen" selected>Pilsen</option>
+									<option value="Larger">Larger</option>
+									<option value="Weizen">Weizen</option>									
+									<option value="IPA">IPA</option>
+									<option value="IPA">Red Ale</option>
+								</select>
+							</div>
+						</div>
+
+						<label>Entregue em :</label>
+                    	<div class="form-row">
+							<div class="select mr-20">
+								<!--<div class="form-holder">
+									<div id="choosen" class="select-control">Blumenau</div>
+									<span class="lnr lnr-chevron-down"></span>
+								</div>
+								<ul id="listacidades" class="dropdown listado">
+									<li class="" value="Curitiba" rel="Curitiba">Curitiba</li>
+									<li class="" value="Curitiba" rel="Blumenau">Blumenau</li>
+									<li class="" value="Curitiba" rel="Joinville">Joinville</li>
+									<li class="" value="Curitiba" rel="Treze Tilhas">Treze Tilhas</li>
+									<li class="" value="Curitiba" rel="Belo Horizonte">Belo Horizonte</li>
+								</ul>-->						
+								<select id="listacidades" class="selectstyle">
+									<option value="Belo Horizonte">Belo Horizonte</option>
+									<option value="Blumenau" >Blumenau</option>
+									<option value="Curitiba">Curitiba</option>									
+									<option value="Joinville">Joinville</option>
+									<option value="Treze Tilhas">Treze Tilhas</option>
+									<option value="São Paulo" selected>São Paulo</option>
+									<option value="Rio de Janeiro">Rio de Janeiro</option>							
+								</select>						
+							</div>
+
+							<!-- <select id="country">
+								<option value="None">-- Select --</option>
+								<option value="ID001">China</option>
+								<option value="ID002" selected>United State</option>
+								<option value="ID003">Malaysia</option>
+								<option value="ID004">Russia</option>
+								<option value="ID005">Motenegro</option>
+							</select>
+						<p id="result">Motenegro</p>
+						<button type="button" onclick="GetSelectedText()">Get Selected Text</button> -->
+                    	
+							<div class="form-holder">
+								<input type="text" id="cidade" class="form-control" placeholder="Outra cidade :">
+							</div>
+						</div>						
+	                    
+							<!--<div class="checkbox-circle">
+								<label>
+									<input type="radio" name="payment" value="full payment" checked>End. Residencial<br>
+									<span class="checkmark"></span>
+								</label>
+								<label>
+									<input type="radio" name="payment" value="10% Deposit">End. Comercial
+									<span class="checkmark"></span>
+								</label>
+							</div>-->
+							<div class="checkbox-circle">
+							<label for="gender">End. Tipo: </label>
+							<label>
+								<input type="radio" name="genderS" value="residencial" checked="checked">Residencial</input>
+								<span class="checkmark"></span>
+							</label>
+							<label>
+								<input type="radio" name="genderS" value="comercial">Comercial</input>
+							<span class="checkmark"></span>
+							</label>
+							<label>
+								<input type="radio" name="genderS" value="outro">Outro</input>
+								<span class="checkmark"></span>
+							</label>					
+							</div>
+
+	                    <button class="forward" style="width: 195px; margin-top: 44px;" onclick="myDataFormOne()">Escolher Barril
+							<i class="zmdi zmdi-long-arrow-right"></i>
+						</button>
+	                </section>
+
+            		<!-- SECTION 2 -->
+					<!-- <h4>Choose Date</h4> -->
+					<h4>Escolha seu Barril</h4>
+	                <section>
+
+					<label>Entrega estimada:</label>
+					<div class="form-row">
+						<div class="form-holder">
+							<input type="text" class="form-control datepicker-here pl-85"
+							data-language='en' data-date-format="dd - mm - yyyy" id="dp1">
+							<span class="lnr lnr-chevron-down"></span>
+							<span class="placeholder">De :</span>
+						</div>
+						<div class="form-holder">
+							<input type="text" class="form-control datepicker-here pl-96"
+							data-language='en'  data-date-format="dd - mm - yyyy" id="dp2">
+							<!-- <span class="lnr lnr-chevron-down"></span> -->
+							<span class="lnr lnr-calendar-full"></span>
+							<span class="placeholder">Até :</span>
+						</div>
+					</div>
+
+					<label>Qual o tamanho do Barril:</label>
+					<div class="form">
+						<div class="form-row">
+							<div class="checkbox disabled mr-10">
+								<label>
+									<input type="checkbox" id="l30" value="30" disabled> 30 litros
+									<span class="checkmark"></span>
+								</label>
+							</div>
+	
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="l50" value="50" checked="checked"> 50 litros
+									<span class="checkmark"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+						<label>Cervejaria :</label>
+						<div class="form-row">
+							<div class="select mr-20">													
+								<select id="listabeer" class="selectstyle">
+									<option value="Alfero">Alfero</option>
+									<option value="Bierland">Bierland</option>
+									<option value="Bode Brown">Bode Brown</option>
+									<option value="Gurman" selected>Gurman</option>
+									<option value="Way">Way</option>									
+									<option value="Faroeste">Faroeste</option>																	
+								</select>						
+							</div>
+											
+							<!--<div class="select">
+								<div class="form-holder">
+									<div class="select-control">Cervejaria :</div>
+									<span class="lnr lnr-chevron-down"></span>
+								</div>
+								<ul class="dropdown">
+									<li rel="Bode Brown">Bode Brown</li>
+									<li rel="Alfero">Alfero</li>
+									<li rel="Gurman">Gurman</li>
+									<li rel="Faroeste">Faroeste</li>
+									<li rel="Bierland">Bierland</li>
+								</ul>
+							</div>-->
+
+							<div class="form-row">Quero
+								<input type="number" min="1" step="1" id="quantidade"
+								class="form-control text-center" value="2" required/>Barris									
+							</div>
+
+							<!--<div class="select">
+								<div class="form-holder">
+									<div class="select-control">Quantidade :</div>
+									<span class="lnr lnr-chevron-down"></span>
+								</div>
+								<ul class="dropdown">
+									<li rel="1 Barril">1 Barril</li>
+									<li rel="2 Barril">2 Barril</li>
+									<li rel="3 Barril">3 Barril</li>
+									<li rel="4 Barril">4 Barril</li>
+									<li rel="5 Barril">5 Barril</li>
+								</ul>
+							</div>-->
+						</div>
+
+						<!--<div class="checkbox-circle">
+							<label>
+								<input type="radio" name="payment" value="full payment" checked="checked">Beer Keg - R$ 90<br>
+								<span class="checkmark"></span>
+							</label>
+							<label>
+								<input type="radio" name="payment" value="10% Deposit">Poli Keg - R$ 200
+								<span class="checkmark"></span>
+							</label>
+						</div>-->
+
+							<div class="checkbox-circle">
+								<label for="gender">Tipo de Barril: </label>
+								<label>
+									<input type="radio" name="kegS" value="beerkeg">Beer Keg (R$ 90)</input>
+									<span class="checkmark"></span>
+								</label>
+								<label>
+									<input type="radio" name="kegS" value="polikeg">Poli Keg (R$ 175)</input>
+								<span class="checkmark"></span>
+								</label>
+								<label>
+									<input type="radio" name="kegS" value="aluminio" checked="checked">Reutilizável</input>
+									<span class="checkmark"></span>
+								</label>								
+							</div>
+						
+						<button class="forward" onclick="dataFormBeerType()">Próximo
+							<i class="zmdi zmdi-long-arrow-right"></i>
+						</button>
+	                </section>
+
+	                <!-- SECTION 3 -->
+	                <h4>Dados Pessoais</h4>
+	                <section>
+                    	<div class="form-row">
+							<div class="form-holder">
+								<input type="text" id="nameUser" class="form-control" placeholder="Nome :">
+							</div>
+							<div class="form-holder">
+								<input type="text" id="lastnameUser" name="" class="form-control" 
+								placeholder="Sobrenome :" pattern="[A-Za-z]+">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-holder">
+								<input type="text" class="form-control" placeholder="Telefone :">
+							</div>
+							<div class="form-holder">
+								<input type="text" class="form-control" placeholder="E-mail :">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-holder">
+								<input type="text" id="bairro" class="form-control" placeholder="Bairro :"
+								title="insira o Bairro" pattern="[A-Za-z]*" maxlength="49">
+							</div>
+							<div class="form-holder">
+								<input type="text" id="cep" class="form-control" placeholder="Número CEP :"
+								pattern="\d{5}-\d{3}" title="insira o cep">
+							</div><!--pattern="[0-9]{1,5}" -->
+						</div>
+						<div class="form-row">
+							<div class="form-holder w-100">
+								<input type="text" id="rua" class="form-control" placeholder="Rua / Logradouro :"
+								title="insira o endereço" pattern="[A-Za-z]*" maxlength="99">
+							</div>
+						</div>
+						<div class="form-row mb-21">
+							<div class="form-holder w-100">
+								<textarea name="" id="observacoes" class="form-control" style="height: 79px;" placeholder="Observações Especiais :"></textarea>
+							</div>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input id="termos" type="checkbox"> Eu li e aceito os
+								<!--<a href="#" onclick="window.open('https://www.oracle.com/br/index.html')">termos e condições.</a>-->
+								<a onclick="window.open(document.URL, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+									Termos e Condições.</a><br/>
+									<!--
+								<a href="http://chriscoyier.net" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">Open in new window/tab</a>
+								-->
+								<span class="checkmark"></span>
+							</label>
+						</div>
+	                    <button class="forward" onclick="myDataFormTwo()" style="width: 195px; margin-top: 44px;">Fechar o Barril
+							<i class="zmdi zmdi-long-arrow-right"></i>
+						</button>
+	                </section>
+
+	                <!-- SECTION 4 -->
+	                <h4>Seu Pedido</h4>
+	                <section class="section-style">
+						
+                		<div class="pay-wrapper">
+                			<div class="bill">
+	                			<div class="bill-cell">
+	                				<div class="bill-item">
+		            					<div class="bill-unit">
+		            						Barril 1 :  <span>Faroeste</span>
+		            					</div>
+		            					<span class="price">$340</span>
+		            				</div>
+		            				<div class="bill-item people">
+		            					<div class="bill-unit">
+		            						Tipo : <span>IPA</span>
+		            					</div>
+		            					<div class="bill-unit">
+		            						Tam. : <span>30 litros</span>
+		            					</div>
+		            				</div>
+	                			</div>
+	            				<div class="bill-cell" style="margin-bottom: 13px">
+	                				<div class="bill-item">
+		            					<div class="bill-unit">
+		            						Barril 2 :  <span>Bode Brown</span>
+		            					</div>
+		            					<span class="price">$230</span>
+		            				</div>
+		            				<div class="bill-item people">
+		            					<div class="bill-unit">
+		            						Tipo : <span>Pilsen</span>
+		            					</div>
+		            					<div class="bill-unit">
+		            						Tam. : <span>50 litros</span>
+		            					</div>
+		            				</div>
+		            				<div class="bill-item service">
+		            					<div class="bill-unit">
+		            						Taxa de entrega :
+		            					</div>
+		            					<span class="price">$80</span>
+		            				</div>
+	                			</div>
+	                			<div class="bill-cell">
+	                				<div class="bill-item vat">
+		            					<div class="bill-unit">
+		            						Desconto :
+		            					</div>
+		            					<span class="price">8%</span>
+		            				</div>
+		            				<div class="bill-item total-price">
+		            					<div class="bill-unit">
+		            						Valor Total :
+		            					</div>
+		            					<span class="price">$800</span>
+		            				</div>
+		            				<div class="checkbox-circle">
+										<label>
+											<input type="radio" name="payment" value="full payment" checked>Boleto Bancário<br>
+											<span class="checkmark"></span>
+										</label>
+										<label>
+											<input type="radio" name="payment" value="10% Deposit">Cartão de Crédito
+											<span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="bill-item total">
+		            					<div class="bill-unit">
+		            						<span>Bônus gerado</span>
+		            						Utilize na próxima compra
+		            					</div>
+		            					<span class="price">R$7,80</span>
+		            				</div>
+	                			</div>
+	            			</div>
+							<button style="width: 195px; margin-top: 45px;" onclick="myDataForm()" onsubmit="">
+								Confirmar Pagamento
+								<i class="zmdi zmdi-long-arrow-right"></i>
+							</button>
+                		</div>
+	                </section>
+            	</div>
+			</div>
+		</div>
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+
+		<!-- JQUERY STEP -->
+		<script src="js/jquery.steps.js"></script>
+
+		<!-- DATE-PICKER -->
+		<script src="vendor/date-picker/js/datepicker.js"></script>
+		<script src="vendor/date-picker/js/datepicker.en.js"></script>
+
+		<script src="js/main.js"></script>
+		<script src="js/mainController.js"></script>
+		<script src="js/mainView.js"></script>
+		<script src="js/form-data.js"></script>		
+
+		<script>
+			// var negociacaoController = new NegociacaoController();
+		</script>
+
+<!-- Template created and distributed by Colorlib -->
+
+	<!--envio de email php-->
+	<?php
+	$to = 'lgspezia@yahoo.com.br';
+	$subject = 'Quero Barril';
+	$from = 'peterparker@email.com';
+	
+	// To send HTML mail, the Content-type header must be set
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	
+	// Create email headers
+	$headers .= 'From: '.$from."\r\n".
+		'Reply-To: '.$from."\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+	
+	// Compose a simple HTML email message
+	$message = '<html><body>';
+	$message .= '<h1 style="color:#f40;">Olá Amigo!</h1>';
+	$message .= '<p style="color:#080;font-size:18px;">Quer um barril	?</p>';
+	$message .= '</body></html>';
+	
+	// Sending email
+	if(mail($to, $subject, $message, $headers)){
+		echo 'Your mail has been sent successfully.';
+	} else{
+		echo 'Unable to send email. Please try again.';
+	}
+	?>
+	<!-----<?php include 'footer.php';?>---->
+
+	</body>
+</html>

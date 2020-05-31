@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Phone Mask</title>
+		
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+
+		<style>				
+			.ulul {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+				grid-gap: 10px;
+				color: #000;
+			}
+			
+			.lili {
+				background-color: #fff;
+				border-radius: 3px;
+				padding: 20px;
+				font-size: 14px;
+			}
+
+			.lili:hover {
+				background-color: #ddd;				  
+			}
+			
+			.info {
+				text-align: center;
+				font-size: 13px;
+				padding-top: 20px;
+				color: #fff;
+			}
+			</style>
+
+	</head>
+	<body>
+
+		<label for="cpf">CPF</label>
+
+
+<input id="cpf" type="text" placeholder="insira seu CPF (somente números)" onblur="formataCPF(this)" pattern="[0-9]{11}">
+<input id="btn-enviar" type="submit" value="enviar">
+
+<div>
+	<input type="text" onblur="mascaraDeTelefone(this)" 
+	placeholder="9999-9999 ou 9999-99999" 
+	onfocus="tiraHifen(this)" />    
+  </div>
+
+		<!--  formatador de CPF -->
+		<script>
+			function formataCPF(cpf) {
+			const elementoAlvo = cpf
+			const cpfAtual = cpf.value   
+
+			let cpfAtualizado;
+			}
+
+			function formataCPF(cpf) {
+			const elementoAlvo = cpf
+			const cpfAtual = cpf.value   
+
+			let cpfAtualizado;
+
+			cpfAtualizado = cpfAtual.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, 
+			function( regex, argumento1, argumento2, argumento3, argumento4 ) {
+					return argumento1 + '.' + argumento2 + '.' + argumento3 + '-' + argumento4;
+			})  
+			elementoAlvo.value = cpfAtualizado; 
+			}
+
+			const cpf = document.querySelector("cpf");
+			cpf.addEventListener("input", function(event){
+			if (cpf.validity.patternMismatch) {
+			cpf.setCustomValidity("Deveria ter apenas números aqui =) ");
+			btnEnviar.disabled = true;
+			} else {
+				cpf.setCustomValidity("");
+				btnEnviar.disabled = false;
+			}
+			});
+
+			// validacao de datas:
+			const hoje = new Date();
+			function calculoDeDias(dataAtual, ultimaRevisao){
+			const segundos = ( dataAtual - ultimaRevisao ) / 1000 ;
+			const horas = ( milesimos / 3600 );
+			const dias = ( horas / 24 );
+			const quantidadeDeDias = Math.floor(dias);
+
+			return quantidadeDeDias;
+		  };
+		  function verifica(ultimaRevisoes){
+			ultimaRevisoes.forEach(td => {
+				// mudaCor(td);
+			});
+		}
+			
+		</script>
+
+		<script>
+			// validacao de telefone
+			function mascaraDeTelefone(telefone){
+    const textoAtual = telefone.value;
+    const isCelular = textoAtual.length === 9;
+    let textoAjustado;
+        if(isCelular) {
+         // faz alguma coisa 
+        } else {
+         // faz alguma coisa
+        }
+    telefone.value = textoAjustado;
+}
+
+function tiraHifen(telefone) {
+    const textoAtual = telefone.value;
+    const textoAjustado = textoAtual.replace(/\-/g, '');
+
+    telefone.value = textoAjustado;
+}
+
+let textoAjustado;
+    if(isCelular) {
+        const parte1 = textoAtual.slice(0,5);
+        const parte2 = textoAtual.slice(5,9);
+        textoAjustado = `${parte1}-${parte2}`        
+    } else {
+        const parte1 = textoAtual.slice(0,4);
+        const parte2 = textoAtual.slice(4,8);
+        textoAjustado = `${parte1}-${parte2}`
+    }
+
+	telefone.value = textoAjustado;
+	
+	let textoAjustado2;
+    if(isCelular) {
+        textoAjustado2 = textoAtual.replace(/(\d{5})(\d{4})/,
+                        function( regex, arg1, arg2) {
+                        return arg1 + '-' + arg2 ;
+                        });
+        telefone.value = textoAjustado2;
+}
+
+		</script>
+	</body>
+</html>
